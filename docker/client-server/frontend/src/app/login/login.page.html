@@ -1,0 +1,61 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="center">
+      Hệ thống ATM
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+
+<ion-content [fullscreen]="true">
+  <h1 class="heading">👋 Welcome<br><br></h1>
+  <p class="para">Đăng nhập</p>
+
+  <div class="container">
+    <div class="header">
+      <form [formGroup]="formData">
+        <ion-item lines="none" class="ion-item">
+          <fieldset class="input-item">
+            <legend>Email Id</legend>
+            <ion-input formControlName="email" type="email" placeholder="hadoan@gmail.com"></ion-input>
+          </fieldset>
+        </ion-item>
+        <ion-item lines="none" class="ion-item">
+          <fieldset class="input-item">
+            <legend>Mật khẩu</legend>
+            <ion-input formControlName="password" type="password" placeholder="*******"
+              labelPlacement="stacked"></ion-input>
+          </fieldset>
+        </ion-item>
+      </form>
+    </div>
+
+    <div class="button">
+      <ion-button class="login-button" expand="block" (click)="login()" color="medium">
+        <ion-icon name="enter-outline"></ion-icon>
+        &nbsp;Nhập
+      </ion-button>
+
+      <ion-button class="add-button" expand="block" (click)="add()" color="medium">
+        <ion-icon name="person-add-outline"></ion-icon>
+        &nbsp;Thêm
+      </ion-button>
+
+      <ion-button class="delete-button" expand="block" (click)="delete()" color="medium">
+        <ion-icon name="trash-outline"></ion-icon>
+        &nbsp;Xoá
+      </ion-button>
+
+      <ion-button class="all-button" expand="block" (click)="all()" color="medium">
+        <ion-icon name="menu-outline"></ion-icon>
+        &nbsp; Xem tất cả
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer color="white">
+  <ion-toolbar>
+    <p class="copyright">copyright © 2023 ❤️ by&nbsp;<a>Nhật Hạ</a></p>
+  </ion-toolbar>
+</ion-footer>

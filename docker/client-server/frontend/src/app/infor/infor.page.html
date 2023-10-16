@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-button class="no-hover" (click)="back()" color="light">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        &nbsp;Quay lại
+      </ion-button>
+    </ion-title>
+    <ion-title class="center">
+      Thông tin tài khoản
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        <ion-button class="no-hover" (click)="back()" color="light">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-title>
+      <ion-title class="center">
+        &nbsp;Thông tin tài khoản
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <ion-title>
+    <h1 class="heading">Tài khoản: {{ user.email }}<br><br></h1>
+    <h2>- - - Chi tiết - - -</h2>
+    <h2>Tên tài khoản: {{ user.name }}</h2>
+    <h2>Số tiền còn lại: {{ user.balance }}</h2>
+  </ion-title>
+  </div>
+</ion-content>

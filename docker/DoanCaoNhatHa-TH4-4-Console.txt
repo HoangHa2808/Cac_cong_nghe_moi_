@@ -1,0 +1,48 @@
+D:\Cong_nghe_moi\docker\console>docker build -t random-image .
+[+] Building 170.7s (8/8) FINISHED                                                                                                               docker:default
+ => [internal] load .dockerignore                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                            0.0s 
+ => [internal] load build definition from Dockerfile                                                                                                       0.0s 
+ => => transferring dockerfile: 109B                                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/python:latest                                                                                           0.6s 
+ => [1/3] FROM docker.io/library/python@sha256:2e376990a11f1c1e03796d08db0e99c36eadb4bb6491372b227f1e53c3482914                                          169.6s 
+ => => resolve docker.io/library/python@sha256:2e376990a11f1c1e03796d08db0e99c36eadb4bb6491372b227f1e53c3482914                                            0.1s 
+ => => sha256:2e376990a11f1c1e03796d08db0e99c36eadb4bb6491372b227f1e53c3482914 2.14kB / 2.14kB                                                             0.0s 
+ => => sha256:88880bc85b0e3342ff416c796df7ad9079b2805f92a6ebfc5c84ac582fb25de9 2.01kB / 2.01kB                                                             0.0s 
+ => => sha256:debce5f9f3a9709885f7f2ad3cf41f036a3b57b406b27ba3a883928315787042 64.11MB / 64.11MB                                                         113.1s 
+ => => sha256:b94d01b4929562a35cdcfe80ca0d5fca222c3fdedf224af9a079dc23157e1363 7.53kB / 7.53kB                                                             0.0s 
+ => => sha256:b47a222d28fa95680198398973d0a29b82a968f03e7ef361cc8ded562e4d84a3 24.03MB / 24.03MB                                                          14.9s 
+ => => sha256:167b8a53ca4504bc6aa3182e336fa96f4ef76875d158c1933d3e2fa19c57e0c3 49.56MB / 49.56MB                                                          31.2s 
+ => => sha256:1d7ca7cd2e066ae77ac6284a9d027f72a31a02a18bfc2a249ef2e7b01074338b 211.04MB / 211.04MB                                                       161.7s 
+ => => sha256:ff3119008f58beef8f336fa833707b0fe914db94ca6b7bb55abe3e1bf2b1ad56 6.39MB / 6.39MB                                                            37.6s 
+ => => extracting sha256:167b8a53ca4504bc6aa3182e336fa96f4ef76875d158c1933d3e2fa19c57e0c3                                                                  2.1s 
+ => => extracting sha256:b47a222d28fa95680198398973d0a29b82a968f03e7ef361cc8ded562e4d84a3                                                                  0.5s 
+ => => sha256:e8095daf0d452128d830cb00924dbbcbbe023872853eff659453e3b17708f4d1 19.78MB / 19.78MB                                                          59.0s 
+ => => sha256:b4b0db24b9acdf160c05860a6c98ba6047b35d1697f3915ad2a992a916cf5e99 244B / 244B                                                                60.7s 
+ => => sha256:523ae3638d56dc770370a1380545d72c5eae2b76ab31abdb7d76e9cec293dc7c 3.11MB / 3.11MB                                                            66.2s 
+ => => extracting sha256:debce5f9f3a9709885f7f2ad3cf41f036a3b57b406b27ba3a883928315787042                                                                  2.4s 
+ => => extracting sha256:1d7ca7cd2e066ae77ac6284a9d027f72a31a02a18bfc2a249ef2e7b01074338b                                                                  6.2s 
+ => => extracting sha256:ff3119008f58beef8f336fa833707b0fe914db94ca6b7bb55abe3e1bf2b1ad56                                                                  0.3s 
+ => => extracting sha256:e8095daf0d452128d830cb00924dbbcbbe023872853eff659453e3b17708f4d1                                                                  0.6s 
+ => => extracting sha256:b4b0db24b9acdf160c05860a6c98ba6047b35d1697f3915ad2a992a916cf5e99                                                                  0.0s 
+ => => extracting sha256:523ae3638d56dc770370a1380545d72c5eae2b76ab31abdb7d76e9cec293dc7c                                                                  0.3s 
+ => [internal] load build context                                                                                                                          0.0s 
+ => => transferring context: 57B                                                                                                                           0.0s 
+ => [2/3] WORKDIR /app                                                                                                                                     0.2s 
+ => [3/3] COPY . /app                                                                                                                                      0.1s 
+ => exporting to image                                                                                                                                     0.1s 
+ => => exporting layers                                                                                                                                    0.1s 
+ => => writing image sha256:4bc69522a76b6e2c2ec589daa19b902a4df5b4e249c6327ee26910f79d71196c                                                               0.0s 
+ => => naming to docker.io/library/random-image                                                                                                            0.0s 
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+
+D:\Cong_nghe_moi\docker\console>docker images
+REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+random-image   latest    4bc69522a76b   20 seconds ago   1.01GB
+
+D:\Cong_nghe_moi\docker\console>docker run --name random-app -it random-image
+Please enter the min number: 20
+Please enter the max number: 30
+27

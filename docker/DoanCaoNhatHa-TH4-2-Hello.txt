@@ -1,0 +1,63 @@
+D:\Cong_nghe_moi\docker\hello\hello>npm install
+
+added 58 packages, and audited 59 packages in 2s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+D:\Cong_nghe_moi\docker\hello\hello>node app.mjs
+^C
+D:\Cong_nghe_moi\docker\hello\hello>docker build -t hello-image .
+2023/09/13 15:32:43 http2: server: error reading preface from client //./pipe/docker_engine: file has already been closed
+[+] Building 7.9s (11/11) FINISHED   docker:default
+ => [internal] load .dockerignore              0.0s
+ => => transferring context: 2B                0.0s 
+ => [internal] load build definition from Doc  0.0s 
+ => => transferring dockerfile: 157B           0.0s 
+ => [internal] load metadata for docker.io/li  6.6s 
+ => [auth] library/node:pull token for regist  0.0s
+ => [1/5] FROM docker.io/library/node:14@sha2  0.0s
+ => [internal] load build context              1.2s 
+ => => transferring context: 2.07MB            1.2s 
+ => CACHED [2/5] WORKDIR /app                  0.0s
+ => CACHED [3/5] COPY package.json .           0.0s 
+ => CACHED [4/5] RUN npm install               0.0s 
+ => CACHED [5/5] COPY . .                      0.0s 
+ => exporting to image                         0.0s 
+ => => exporting layers                        0.0s 
+ => => writing image sha256:94e34331075b293db  0.0s 
+ => => naming to docker.io/library/hello-imag  0.0s 
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+
+D:\Cong_nghe_moi\docker\hello\hello>docker images
+REPOSITORY                             TAG       IMAGE ID       CREATED          SIZE
+hello-app                              latest    94e34331075b   7 minutes ago    918MB
+hello-image                            latest    94e34331075b   7 minutes ago    918MB
+<none>                                 <none>    76d78b27ed59   14 minutes ago   918MB
+<none>                                 <none>    d7a09c59dcce   39 minutes ago   918MB
+felipecruz/dockerfile-diff-extension   0.0.6     96c5c1553f23   3 months ago     62.6MB
+citizenstig/httpbin                    latest    93ff87f92cd8   6 years ago      182MB
+
+D:\Cong_nghe_moi\docker\hello\hello>docker run --name hello-app -p 3000:3000 hello-image
+
+D:\Cong_nghe_moi\docker\hello\hello>docker rm hello-
+app
+hello-app
+
+D:\Cong_nghe_moi\docker\hello\hello>docker rmi hello-image  
+Untagged: hello-image:latest
+
+D:\Cong_nghe_moi\docker\hello\hello>docker images
+REPOSITORY                             TAG       IMAGE ID       CREATED          SIZE
+hello-app                              latest    94e34331075b   11 minutes ago   918MB
+<none>                                 <none>    76d78b27ed59   19 minutes ago   918MB
+<none>                                 <none>    d7a09c59dcce   44 minutes ago   918MB
+felipecruz/dockerfile-diff-extension   0.0.6     96c5c1553f23   3 months ago     62.6MB
+citizenstig/httpbin                    latest    93ff87f92cd8   6 years ago      182MB
+
+D:\Cong_nghe_moi\docker\hello\hello>docker ps     
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES

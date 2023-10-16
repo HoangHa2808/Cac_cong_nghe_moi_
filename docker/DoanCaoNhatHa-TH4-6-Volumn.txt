@@ -1,0 +1,60 @@
+D:\Cong_nghe_moi\docker\feedback>docker build -t feedback-image .
+[+] Building 37.2s (10/10) FINISHED                                                                                                                        docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                 0.0s
+ => => transferring dockerfile: 194B                                                                                                                                 0.0s 
+ => [internal] load .dockerignore                                                                                                                                    0.0s 
+ => => transferring context: 2B                                                                                                                                      0.0s 
+ => [internal] load metadata for docker.io/library/node:14                                                                                                          20.7s 
+ => [internal] load build context                                                                                                                                    4.8s
+ => => transferring context: 4.25MB                                                                                                                                  4.7s
+ => [1/5] FROM docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                                                     0.0s 
+ => CACHED [2/5] WORKDIR /app                                                                                                                                        0.0s 
+ => [3/5] COPY package.json .                                                                                                                                        0.1s 
+ => [4/5] RUN npm install                                                                                                                                           10.7s 
+ => [5/5] COPY . .                                                                                                                                                   0.3s 
+ => exporting to image                                                                                                                                               0.4s 
+ => => exporting layers                                                                                                                                              0.4s 
+ => => writing image sha256:288723e97d861e268cb078e02098bf42596ea2db3c42a6007813d20df0206572                                                                         0.0s 
+ => => naming to docker.io/library/feedback-image                                                                                                                    0.0s 
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+
+D:\Cong_nghe_moi\docker\feedback>docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+feedback-image   latest    288723e97d86   37 seconds ago   926MB
+280802/goal      latest    c0ff60284f23   5 hours ago      925MB
+
+D:\Cong_nghe_moi\docker\feedback>docker run -d -p 3000:80 --rm --name feedback-app feedback-image
+9dd9b05a751f8a015cf98ec769cf91c11f25d19174dd4e6ebd2bb9453e5cd49f
+
+D:\Cong_nghe_moi\docker\feedback>docker stop feedback-app
+feedback-app
+
+D:\Cong_nghe_moi\docker\feedback>docker run -d -p 3000:80 --rm --name feedback-app feedback-image
+36cb2527763c0b2f2c73969dca18aa142c1dbedf735ab16c78a1533aec380e72
+
+D:\Cong_nghe_moi\docker\feedback>docker stop feedback-app
+feedback-app
+
+D:\Cong_nghe_moi\docker\feedback>docker run -d -p 3000:80 -v feedback:/app/feedback --rm --name feedback-app feedback-image 
+73d31e1a655ec504d98960fc90fba5b74e9cf36a3be4d099d7b8390b65cbeb05
+
+D:\Cong_nghe_moi\docker\feedback>docker stop feedback-app  
+feedback-app
+
+D:\Cong_nghe_moi\docker\feedback>docker volume ls
+DRIVER    VOLUME NAME
+local     feedback
+
+D:\Cong_nghe_moi\docker\feedback>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+D:\Cong_nghe_moi\docker\feedback>docker run -d -p 3000:80 -v feedback:/app/feedback --rm --name feedback-app feedback-image       
+eb164c0221400aa6f9a5e2a380adc3c82a5cece38e97a977755d42836c4c3538
+
+D:\Cong_nghe_moi\docker\feedback>docker stop feedback-app
+feedback-app
+
+D:\Cong_nghe_moi\docker\feedback>docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "D:\Cong_nghe_moi\docker\feedback":/app -v /app/node_modules feedback-image              
+460d9f42d452abb974c0cc6b2cefab484414384d0917fdacc9ae6e593c98666a

@@ -1,0 +1,94 @@
+D:\Cong_nghe_moi\docker\dockerHub>docker build -t goal-image .                         
+[+] Building 5.6s (10/10) FINISHED                                                                                                           docker:default
+ => [internal] load build definition from Dockerfile                                                                                                   0.0s
+ => => transferring dockerfile: 169B                                                                                                                   0.0s 
+ => [internal] load .dockerignore                                                                                                                      0.0s 
+ => => transferring context: 2B                                                                                                                        0.0s 
+ => [internal] load metadata for docker.io/library/node:12                                                                                             2.7s 
+ => [1/5] FROM docker.io/library/node:12@sha256:01627afeb110b3054ba4a1405541ca095c8bfca1cb6f2be9479c767a2711879e                                       0.0s
+ => [internal] load build context                                                                                                                      2.3s
+ => => transferring context: 2.34MB                                                                                                                    2.3s 
+ => CACHED [2/5] WORKDIR /app                                                                                                                          0.0s 
+ => CACHED [3/5] COPY package.json /app                                                                                                                0.0s 
+ => CACHED [4/5] RUN npm install                                                                                                                       0.0s 
+ => [5/5] COPY . /app                                                                                                                                  0.3s 
+ => exporting to image                                                                                                                                 0.1s 
+ => => exporting layers                                                                                                                                0.1s 
+ => => writing image sha256:c0ff60284f238ffd1b428e1956ba6cbd21409cefce87b8b17ab1f5ec97432b83                                                           0.0s 
+ => => naming to docker.io/library/goal-image                                                                                                          0.0s 
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+
+D:\Cong_nghe_moi\docker\dockerHub>docker run --name goal-app -it goal-image
+
+D:\Cong_nghe_moi\docker\dockerHub>docker tag goal-image:latest 280802/goal:latest      
+
+D:\Cong_nghe_moi\docker\dockerHub>docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+280802/goal      latest    c0ff60284f23   11 minutes ago   925MB      
+goal-image       latest    c0ff60284f23   11 minutes ago   925MB      
+your_id/random   latest    2348c3243887   53 minutes ago   1.01GB     
+
+D:\Cong_nghe_moi\docker\dockerHub>docker login 
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: 280802
+Password:
+Login Succeeded
+
+Logging in with your password grants your terminal complete access to your account.
+For better security, log in with a limited-privilege personal access token. Learn more at https://docs.docker.com/go/access-tokens/
+
+D:\Cong_nghe_moi\docker\dockerHub>docker push 280802/goal:latest    
+The push refers to repository [docker.io/280802/goal]
+a2410d45b43c: Preparing                                               
+f1a87f2b3d65: Preparing                                               
+02aa097671b7: Preparing                                               
+96797e9f3023: Preparing                                               
+f1a87f2b3d65: Pushed
+0bfd290f2c17: Mounted from library/node
+6d75cd01c26c: Mounted from library/node
+95904c181913: Mounted from library/node
+e
+latest: digest: sha256:0c849936fae46197590c8455c1d095a33fe740b3e7d9bfa6742b67cf2d4ca0d9 size: 3050
+
+D:\Cong_nghe_moi\docker\dockerHub>docker logout
+Removing login credentials for https://index.docker.io/v1/
+
+D:\Cong_nghe_moi\docker\dockerHub>docker image prune -a
+WARNING! This will remove all images without at least one container associated to them.
+Are you sure you want to continue? [y/N] y
+Deleted Images:
+untagged: feedback-image:latest
+deleted: sha256:288723e97d861e268cb078e02098bf42596ea2db3c42a6007813d20df0206572
+untagged: 280802/goal:latest
+untagged: 280802/goal@sha256:0c849936fae46197590c8455c1d095a33fe740b3e7d9bfa6742b67cf2d4ca0d9
+deleted: sha256:c0ff60284f238ffd1b428e1956ba6cbd21409cefce87b8b17ab1f5ec97432b83
+
+D:\Cong_nghe_moi\docker\dockerHub>docker images
+REPOSITORY       TAG       IMAGE ID       CREATED             SIZE      
+
+D:\Cong_nghe_moi\docker\dockerHub>docker pull 280802/goal:latest        
+latest: Pulling from 280802/goal
+f5196cdf2518: Already exists                                                                                
+9bed1e86f01e: Already exists                                                                                
+f44e4bdb3a6c: Already exists                                                                                
+2f75d131f406: Already exists                                                                                
+07dff4ad21eb: Already exists                                                                                
+e0ac4f13b766: Already exists                                                                                
+df2c3b2eb7cc: Already exists                                                                                
+efe636eac583: Already exists                                                                                
+fe17849545bb: Already exists                                                                                
+81d9442f415a: Already exists
+220c57ef913e: Already exists
+94eaccf0a78c: Already exists
+26089f5f21ea: Already exists
+Digest: sha256:0c849936fae46197590c8455c1d095a33fe740b3e7d9bfa6742b67cf2d4ca0d9
+Status: Downloaded newer image for 280802/goal:latest
+docker.io/280802/goal:latest
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview 280802/goal:latest     
+
+D:\Cong_nghe_moi\docker\dockerHub>docker run -d -it --rm --name goal-app 280802/goal:latest
+2307b6fff1ff41f5750b6fc002a8e19885ae2a2686e0c3027299d8fa25606b09

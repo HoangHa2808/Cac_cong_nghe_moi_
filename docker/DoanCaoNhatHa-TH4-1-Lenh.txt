@@ -1,0 +1,9 @@
+D:\Cong_nghe_moi>md docker
+
+D:\Cong_nghe_moi>cd docker
+
+D:\Cong_nghe_moi\docker>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+D:\Cong_nghe_moi\docker>docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
